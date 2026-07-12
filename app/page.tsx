@@ -6,6 +6,7 @@ import PrincipalMessage from "@/components/home/PrincipalMessage";
 import LifeGallery from "@/components/home/LifeGallery";
 import NewsEvents from "@/components/home/NewsEvents";
 import Achievements from "@/components/home/Achievements";
+import ClubsMarquee from "@/components/home/ClubsMarquee";
 import AdmissionsCTA from "@/components/home/AdmissionsCTA";
 import Footer from "@/components/home/Footer";
 
@@ -22,6 +23,7 @@ export default function Home() {
         <Achievements />
         <NewsEvents />
         <AdmissionsCTA />
+        <ClubsMarquee />
       </main>
       <Footer />
     </>

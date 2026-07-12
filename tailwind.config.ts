@@ -34,6 +34,15 @@ const config: Config = {
       backgroundImage: {
         'navy-gradient': 'linear-gradient(to bottom right, #0A1F3B, #0F2D52)',
       },
+      keyframes: {
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' }, // Assuming we duplicate the content, we translate by half
+        }
+      },
+      animation: {
+        'marquee': 'marquee 60s linear infinite',
+      }
     },
   },
   plugins: [],

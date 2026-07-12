@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 
 const heroImages = [
@@ -22,19 +22,10 @@ export default function Hero() {
     return () => clearInterval(timer);
   }, []);
 
-  const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % heroImages.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + heroImages.length) % heroImages.length);
-  };
-
   return (
-    <section className="relative w-full min-h-[650px] md:min-h-[600px] lg:h-[70vh] lg:max-h-[800px] bg-navy flex items-center justify-center overflow-hidden group pt-32 pb-16 md:pt-20 md:pb-0">
-      
-      {/* Full Background Image Slider */}
-      <div className="absolute top-0 left-0 right-0 h-[350px] md:inset-0 md:h-full z-0 w-full">
+    <section className="relative w-full h-[500px] md:h-[600px] overflow-hidden">
+      {/* Background image slider */}
+      <div className="absolute inset-0 z-0">
         <AnimatePresence mode="sync">
           <motion.div
             key={currentIndex}
@@ -44,76 +35,57 @@ export default function Hero() {
             transition={{ duration: 1.5, ease: "easeInOut" }}
             className="absolute inset-0 w-full h-full"
           >
-            <Image 
-              src={heroImages[currentIndex]} 
-              alt="Rosary School Campus Background" 
-              fill 
-              className="object-cover object-[75%_center] md:object-center" 
-              priority={true}
+            <Image
+              src={heroImages[currentIndex]}
+              alt="Rosary school campus"
+              fill
+              className="object-cover"
+              priority
             />
           </motion.div>
         </AnimatePresence>
       </div>
 
-      {/* Navy Gradient Overlays for smooth blending */}
-      {/* Main gradient: Bottom-to-top on mobile (only over the image part), Left-to-right on desktop */}
-      <div className="absolute top-0 left-0 right-0 h-[350px] md:inset-0 z-10 bg-gradient-to-t md:bg-gradient-to-r from-navy via-navy/50 md:via-navy/80 to-transparent w-full md:w-3/4 lg:w-2/3 pointer-events-none"></div>
-      
-      {/* Secondary right-to-left subtle gradient so the badge pops on bright images */}
-      <div className="absolute inset-0 z-10 bg-gradient-to-l from-navy/60 to-transparent w-full md:w-1/3 right-0 ml-auto pointer-events-none"></div>
+      {/* Gradient overlay — dark left to lighter right, plus bottom scrim */}
+      <div className="absolute inset-0 z-10 bg-gradient-to-r from-[#0F2D52]/95 via-[#0F2D52]/70 to-[#0F2D52]/30 pointer-events-none" />
+      <div className="absolute inset-0 z-10 bg-gradient-to-t from-[#0F2D52]/60 via-transparent to-transparent pointer-events-none" />
 
-      {/* Content Container */}
-      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12 relative z-20 w-full flex flex-col md:flex-row justify-between items-center h-full">
-        
-        {/* Left Side: Text Content */}
-        <div className="w-full md:w-2/3 lg:w-5/12 flex flex-col mt-auto md:mt-0 pb-8 md:pb-0">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h1 className="text-[28px] leading-[1.2] sm:text-5xl lg:text-6xl font-heading font-extrabold text-white tracking-tight mb-3 sm:mb-4 drop-shadow-lg">
-              Shaping Minds.<br/>
-              Building Futures.<br/>
-              <span className="text-gold">Inspiring Excellence.</span>
-            </h1>
-            
-            <p className="text-[15px] sm:text-xl text-gray-200 font-medium mb-6 sm:mb-8 max-w-md leading-relaxed drop-shadow-md">
-              A legacy of 75 Years in nurturing generations of confident leaders.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-              <button className="px-5 py-3 sm:px-8 sm:py-3.5 bg-gold text-navy font-bold text-sm sm:text-base rounded hover:bg-gold-light transition-colors shadow-lg">
-                ADMISSIONS OPEN 2026-27
-              </button>
-              <button className="px-5 py-3 sm:px-8 sm:py-3.5 bg-transparent border border-white/50 text-white font-bold text-sm sm:text-base rounded hover:bg-white/10 hover:border-white transition-colors flex items-center justify-center backdrop-blur-sm">
-                VIRTUAL TOUR <ArrowRight size={18} className="ml-2" />
-              </button>
+      {/* Content */}
+      <div className="relative z-20 h-full flex flex-col justify-center px-6 md:px-16 w-full pt-28 md:pt-0">
+        {/* 75 years badge */}
+        <div className="flex justify-center pt-6 pb-4 md:absolute md:top-8 md:right-8 lg:right-16 md:block md:pt-0 md:pb-0 z-20 scale-75 md:scale-100 origin-center md:origin-top-right">
+          <div className="relative flex flex-col items-center w-[170px]">
+            <div className="w-[140px] h-[140px] rounded-full bg-[#D4AF37] flex items-center justify-center shadow-2xl relative z-10">
+              <div className="w-[118px] h-[118px] rounded-full bg-[#0F2D52] border border-dashed border-[#D4AF37]/50 flex flex-col items-center justify-center">
+                <p className="text-[40px] font-bold text-[#D4AF37] leading-none">75</p>
+                <p className="text-xs font-bold text-white tracking-[0.18em] mt-1.5">YEARS</p>
+              </div>
             </div>
-          </motion.div>
-        </div>
 
-        {/* Right Side: 75 Years Badge */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="hidden md:flex flex-col items-center justify-center absolute right-8 lg:right-24 top-1/2 -translate-y-1/2"
-        >
-          <div className="relative flex flex-col items-center justify-center">
-            {/* Wreath outline approximation using borders and glow */}
-            <div className="w-40 h-40 rounded-full border-2 border-dashed border-gold/60 flex flex-col items-center justify-center bg-navy/40 backdrop-blur-sm shadow-[0_0_30px_rgba(212,175,55,0.2)]">
-               <span className="text-gold text-6xl font-heading font-extrabold leading-none drop-shadow-lg">75</span>
-               <span className="text-white text-sm font-bold tracking-widest mt-1">YEARS</span>
-            </div>
-            
-            {/* Banner below the wreath */}
-            <div className="absolute -bottom-4 bg-gold px-6 py-1.5 shadow-lg transform -skew-x-12">
-               <span className="text-navy font-bold text-sm transform skew-x-12 block text-center tracking-widest">1949 - 2024</span>
+            <div className="bg-[#D4AF37] rounded-md px-4 py-1.5 mt-2.5">
+              <p className="text-xs font-bold text-[#0F2D52] tracking-wide">1949 – 2024</p>
             </div>
           </div>
-        </motion.div>
-        
+        </div>
+
+        <div className="max-w-3xl">
+          <h1 className="font-['Plus_Jakarta_Sans'] font-bold text-4xl md:text-6xl text-white leading-tight px-4 md:px-0 mt-2 md:mt-0">
+            Shaping Minds.<br />
+            Building Futures.<br />
+            <span className="text-[#D4AF37]">Inspiring Excellence.</span>
+          </h1>
+          <p className="mt-4 text-white/90 text-base md:text-lg max-w-md">
+            A legacy of 75 Years in nurturing generations of confident leaders.
+          </p>
+          <div className="flex gap-3 md:gap-4 mt-8 flex-wrap md:flex-nowrap">
+            <button className="bg-[#D4AF37] text-[#0F2D52] font-bold rounded-full px-4 py-2.5 whitespace-nowrap text-xs uppercase tracking-wide">
+              Admissions open 2026-27
+            </button>
+            <button className="border border-white/60 text-white rounded-full px-4 py-2.5 flex items-center gap-2 whitespace-nowrap text-xs uppercase tracking-wide hover:bg-white/10 transition-colors">
+              Virtual tour <ArrowRight size={14} />
+            </button>
+          </div>
+        </div>
       </div>
     </section>
   );

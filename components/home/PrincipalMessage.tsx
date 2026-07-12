@@ -13,23 +13,23 @@ export default function PrincipalMessage() {
         </h2>
       </div>
       
-      <div className="flex flex-row gap-4 sm:gap-8 relative z-10 h-full items-start">
-        {/* Image - Left Side (Left on Mobile too) */}
-        <div className="w-2/5 sm:w-1/2 flex items-start justify-center relative mt-6 sm:mt-10 h-full">
-          <div className="w-full aspect-[3/4] max-w-[200px] sm:max-w-[240px] relative drop-shadow-2xl sm:group-hover:-translate-y-2 transition-transform duration-500 z-20 scale-110">
+      <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 sm:gap-8 relative z-10 h-full">
+        {/* Image - Circular on Mobile, Pop-up on Desktop */}
+        <div className="w-32 h-32 sm:w-1/2 sm:h-auto sm:aspect-[3/4] flex-shrink-0 mx-auto sm:mx-0 rounded-full sm:rounded-none overflow-hidden sm:overflow-visible relative sm:mt-10 bg-navy-light/5 sm:bg-transparent flex items-start justify-center">
+          <div className="w-full h-full sm:max-w-[240px] relative drop-shadow-sm sm:drop-shadow-2xl sm:group-hover:-translate-y-2 transition-transform duration-500 z-20 sm:scale-110">
             <Image 
               src="https://ik.imagekit.io/d5lm3vdk3/New%20Folder/rosary%20school/sr-principle--removebg-preview.png"
               alt="Principal"
               fill
-              className="object-contain object-top"
+              className="object-cover sm:object-contain object-top scale-125 sm:scale-100 pt-2 sm:pt-0"
             />
           </div>
         </div>
 
-        {/* Message Content - Right Side (Right on Mobile too) */}
-        <div className="w-3/5 sm:w-1/2 flex flex-col justify-start gap-3 sm:gap-4 h-full py-2">
+        {/* Message Content */}
+        <div className="w-full sm:w-1/2 flex flex-col justify-start gap-3 sm:gap-4 h-full py-2 text-center sm:text-left">
           <div className="relative">
-            <Quote className="text-navy-light w-8 h-8 mb-2" fill="currentColor" />
+            <Quote className="text-navy-light w-8 h-8 mb-2 mx-auto sm:mx-0" fill="currentColor" />
             <div className="space-y-4 text-[14px] text-gray-700 font-sans leading-relaxed">
               <p>
                 At Rosary, we believe in the holistic development of every child – academically, morally, socially and spiritually. Our mission is to empower students to become compassionate leaders and responsible citizens.

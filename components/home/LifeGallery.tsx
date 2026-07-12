@@ -2,7 +2,7 @@
 
 import { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Microscope, MonitorPlay, Dumbbell, Palette } from "lucide-react";
+import { ArrowRight, Monitor, FlaskConical, Dumbbell, Music } from "lucide-react";
 import Image from "next/image";
 
 const activities = [
@@ -10,16 +10,14 @@ const activities = [
     id: 1,
     title: "Smart Classrooms",
     description: "Interactive learning environments equipped with modern digital tools.",
-    icon: MonitorPlay,
-    bg: "bg-navy-light",
+    icon: Monitor,
     image: "https://ik.imagekit.io/d5lm3vdk3/New%20Folder/rosary%20school/school5.jpg"
   },
   {
     id: 2,
     title: "Science Labs",
     description: "State-of-the-art laboratories to foster practical learning and curiosity.",
-    icon: Microscope,
-    bg: "bg-green",
+    icon: FlaskConical,
     image: "https://ik.imagekit.io/d5lm3vdk3/New%20Folder/rosary%20school/school%206.jpg"
   },
   {
@@ -27,15 +25,13 @@ const activities = [
     title: "Sports Excellence",
     description: "Comprehensive facilities promoting physical fitness and teamwork.",
     icon: Dumbbell,
-    bg: "bg-gold",
-    image: "https://ik.imagekit.io/d5lm3vdk3/New%20Folder/rosary%20school/sport.jpg"
+    image: "https://ik.imagekit.io/d5lm3vdk3/New%20Folder/rosary%20school/sports.jpg"
   },
   {
     id: 4,
     title: "Cultural Activities",
     description: "Nurturing creativity through arts, music, and dramatic performances.",
-    icon: Palette,
-    bg: "bg-navy-dark",
+    icon: Music,
     image: "https://ik.imagekit.io/d5lm3vdk3/New%20Folder/rosary%20school/cll.jpeg"
   },
 ];
@@ -120,8 +116,8 @@ export default function LifeGallery() {
               
               {/* Content */}
               <div className="absolute inset-0 z-20 p-8 flex flex-col justify-end transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                <div className={`w-14 h-14 rounded-full ${item.bg} flex items-center justify-center mb-6 text-white shadow-lg transform -translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100`}>
-                  <item.icon size={24} />
+                <div className="w-10 h-10 rounded-full bg-[#D4AF37] flex items-center justify-center mb-6 shadow-lg transform -translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100">
+                  <item.icon className="w-5 h-5 text-white" />
                 </div>
                 
                 <h3 className="text-2xl font-heading font-bold text-white mb-3">

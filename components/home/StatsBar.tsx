@@ -1,46 +1,16 @@
 "use client";
 
-import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { GraduationCap, Users, BookOpen, Trophy, Flag } from "lucide-react";
-import { useEffect, useState } from "react";
+import { Award, Users, BookOpen, Trophy, Medal } from "lucide-react";
+import { useRef } from "react";
 
 const stats = [
-  { icon: GraduationCap, end: 75, suffix: "+", label: "Years of Legacy" },
-  { icon: Users, end: 1000, suffix: "+", label: "Students" },
-  { icon: BookOpen, end: 40, suffix: "+", label: "Faculty Members" },
-  { icon: Trophy, end: 100, suffix: "%", label: "Board Results" },
-  { icon: Flag, end: 25, suffix: "+", label: "Sports & Clubs" },
+  { icon: Award, value: "75+", label: "Years of legacy" },
+  { icon: Users, value: "1000+", label: "Students" },
+  { icon: BookOpen, value: "40+", label: "Faculty members" },
+  { icon: Trophy, value: "100%", label: "Board results" },
+  { icon: Medal, value: "25+", label: "Sports and clubs" },
 ];
-
-function Counter({ end, suffix, inView }: { end: number; suffix: string; inView: boolean }) {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    if (!inView) return;
-    let start = 0;
-    const duration = 2000;
-    const increment = end / (duration / 16);
-    
-    const timer = setInterval(() => {
-      start += increment;
-      if (start >= end) {
-        setCount(end);
-        clearInterval(timer);
-      } else {
-        setCount(Math.floor(start));
-      }
-    }, 16);
-
-    return () => clearInterval(timer);
-  }, [end, inView]);
-
-  return (
-    <span className="font-heading font-bold text-2xl lg:text-3xl text-white">
-      {count}{suffix}
-    </span>
-  );
-}
 
 export default function StatsBar() {
   const ref = useRef(null);
@@ -62,28 +32,33 @@ export default function StatsBar() {
   };
 
   return (
-    <div className="bg-navy-dark w-full py-8 relative z-20 border-t-4 border-gold">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          ref={ref}
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-y-8 divide-x-0 lg:divide-x lg:divide-navy-light"
-        >
-          {stats.map((stat, index) => (
-            <motion.div key={index} variants={itemVariants} className="flex flex-col md:flex-row items-center justify-center text-center md:text-left gap-4 group px-4">
-              <div className="w-12 h-12 flex items-center justify-center text-gold group-hover:scale-110 transition-transform duration-300">
-                <stat.icon size={36} strokeWidth={1.5} />
+    <section className="w-full bg-[#0F2D52] py-6">
+      <motion.div
+        ref={ref}
+        variants={containerVariants}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+        className="grid grid-cols-2 md:grid-cols-5 w-full"
+      >
+        {stats.map((stat, i) => {
+          const Icon = stat.icon;
+          return (
+            <motion.div 
+              key={i} 
+              variants={itemVariants} 
+              className="flex items-center justify-center gap-3.5 px-3 py-4 md:py-0 border-r border-white/15 last:border-r-0 text-left"
+            >
+              <div className="w-9 h-9 rounded-[10px] bg-[#D4AF37]/15 flex items-center justify-center shrink-0">
+                <Icon className="w-5 h-5 text-[#D4AF37]" strokeWidth={1.75} />
               </div>
               <div className="flex flex-col">
-                <Counter end={stat.end} suffix={stat.suffix} inView={isInView} />
-                <span className="text-white/70 font-medium text-xs mt-0.5">{stat.label}</span>
+                <p className="text-[22px] font-bold text-white leading-none">{stat.value}</p>
+                <p className="text-[11px] text-[#B9C4D6] mt-1">{stat.label}</p>
               </div>
             </motion.div>
-          ))}
-        </motion.div>
-      </div>
-    </div>
+          );
+        })}
+      </motion.div>
+    </section>
   );
 }

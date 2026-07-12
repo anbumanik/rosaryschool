@@ -53,7 +53,7 @@ export default function Testimonials() {
       <div className="flex flex-col flex-1 relative">
         <Quote className="text-navy-dark w-10 h-10 mb-4 fill-navy-dark" strokeWidth={0} />
         
-        <div className="relative flex-1">
+        <div className="flex-1">
           <AnimatePresence mode="wait">
             <motion.div
               key={current}
@@ -61,13 +61,13 @@ export default function Testimonials() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
               transition={{ duration: 0.3 }}
-              className="absolute inset-0 flex flex-col"
+              className="flex flex-col h-full justify-between min-h-[160px]"
             >
               <p className="text-[13.5px] sm:text-[14px] text-gray-700 font-medium leading-[1.8] mb-6">
                 {testimonials[current].quote}
               </p>
               
-              <div className="mt-auto">
+              <div className="mt-4">
                 <p className="text-sm font-bold text-navy-dark">{testimonials[current].role}</p>
               </div>
             </motion.div>

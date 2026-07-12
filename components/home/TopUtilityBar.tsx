@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export default function TopUtilityBar() {
   return (
-    <div className="w-full bg-navy-dark text-gray-300 py-1.5 px-4 md:px-8 text-[11px] font-medium border-b border-navy-light flex items-center justify-end z-50 relative h-8">
+    <div className="w-full bg-[#0F2D52] text-gray-300 py-1.5 px-4 md:px-8 text-[11px] font-medium border-b border-white/10 flex items-center justify-end z-50 relative h-8">
       <div className="flex items-center space-x-3 md:space-x-4">
         <a href="#" className="hover:text-white transition-colors">Alumni</a>
         <span className="text-gray-500">|</span>

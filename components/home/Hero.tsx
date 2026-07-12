@@ -31,10 +31,10 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative w-full min-h-[100vh] md:min-h-[600px] lg:h-[70vh] lg:min-h-[600px] lg:max-h-[800px] bg-navy flex items-center justify-center overflow-hidden group pt-32 pb-16 md:pt-20 md:pb-0">
+    <section className="relative w-full min-h-[650px] md:min-h-[600px] lg:h-[70vh] lg:max-h-[800px] bg-navy flex items-center justify-center overflow-hidden group pt-32 pb-16 md:pt-20 md:pb-0">
       
       {/* Full Background Image Slider */}
-      <div className="absolute inset-0 z-0 w-full h-full">
+      <div className="absolute top-0 left-0 right-0 h-[350px] md:inset-0 md:h-full z-0 w-full">
         <AnimatePresence mode="sync">
           <motion.div
             key={currentIndex}
@@ -56,11 +56,8 @@ export default function Hero() {
       </div>
 
       {/* Navy Gradient Overlays for smooth blending */}
-      {/* Main gradient to blend text into the image - adjusted for mobile visibility */}
-      <div className="absolute inset-0 z-10 bg-gradient-to-r from-navy via-navy/80 to-transparent w-[100%] md:w-3/4 lg:w-2/3 pointer-events-none"></div>
-      
-      {/* Additional bottom gradient for mobile to ensure text at the bottom is perfectly readable */}
-      <div className="absolute inset-x-0 bottom-0 h-1/2 z-10 bg-gradient-to-t from-navy via-navy/80 to-transparent md:hidden pointer-events-none"></div>
+      {/* Main gradient: Bottom-to-top on mobile (only over the image part), Left-to-right on desktop */}
+      <div className="absolute top-0 left-0 right-0 h-[350px] md:inset-0 z-10 bg-gradient-to-t md:bg-gradient-to-r from-navy via-navy/50 md:via-navy/80 to-transparent w-full md:w-3/4 lg:w-2/3 pointer-events-none"></div>
       
       {/* Secondary right-to-left subtle gradient so the badge pops on bright images */}
       <div className="absolute inset-0 z-10 bg-gradient-to-l from-navy/60 to-transparent w-full md:w-1/3 right-0 ml-auto pointer-events-none"></div>
@@ -75,21 +72,21 @@ export default function Hero() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-extrabold text-white leading-[1.15] tracking-tight mb-4 drop-shadow-lg">
+            <h1 className="text-[28px] leading-[1.2] sm:text-5xl lg:text-6xl font-heading font-extrabold text-white tracking-tight mb-3 sm:mb-4 drop-shadow-lg">
               Shaping Minds.<br/>
               Building Futures.<br/>
               <span className="text-gold">Inspiring Excellence.</span>
             </h1>
             
-            <p className="text-lg sm:text-xl text-gray-200 font-medium mb-8 max-w-md leading-relaxed drop-shadow-md">
+            <p className="text-[15px] sm:text-xl text-gray-200 font-medium mb-6 sm:mb-8 max-w-md leading-relaxed drop-shadow-md">
               A legacy of 75 Years in nurturing generations of confident leaders.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4">
-              <button className="px-8 py-3.5 bg-gold text-navy font-bold rounded hover:bg-gold-light transition-colors shadow-lg">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+              <button className="px-5 py-3 sm:px-8 sm:py-3.5 bg-gold text-navy font-bold text-sm sm:text-base rounded hover:bg-gold-light transition-colors shadow-lg">
                 ADMISSIONS OPEN 2026-27
               </button>
-              <button className="px-8 py-3.5 bg-transparent border border-white/50 text-white font-bold rounded hover:bg-white/10 hover:border-white transition-colors flex items-center justify-center backdrop-blur-sm">
+              <button className="px-5 py-3 sm:px-8 sm:py-3.5 bg-transparent border border-white/50 text-white font-bold text-sm sm:text-base rounded hover:bg-white/10 hover:border-white transition-colors flex items-center justify-center backdrop-blur-sm">
                 VIRTUAL TOUR <ArrowRight size={18} className="ml-2" />
               </button>
             </div>

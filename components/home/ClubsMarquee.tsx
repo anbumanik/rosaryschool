@@ -31,16 +31,16 @@ export default function ClubsMarquee() {
           {marqueeItems.map((club, index) => (
             <div 
               key={index} 
-              className="relative w-64 h-24 mx-8 border-2 border-gray-200 rounded-xl flex items-center justify-center bg-lightBg flex-shrink-0 cursor-pointer group hover:border-gold transition-colors"
+              className="relative w-48 sm:w-64 h-16 sm:h-24 mx-6 sm:mx-8 border border-gray-200 sm:border-2 rounded-xl flex items-center justify-center bg-lightBg flex-shrink-0 cursor-pointer group hover:border-gold transition-colors"
             >
               {/* Logo overflowing the left side */}
-              <div className="absolute -left-8 top-1/2 -translate-y-1/2 w-16 h-16 bg-white rounded-full border-2 border-gray-100 flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow">
+              <div className="absolute -left-6 sm:-left-8 top-1/2 -translate-y-1/2 w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full border border-gray-100 sm:border-2 flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow">
                 {/* I am using placeholder icons here since we don't have the image URLs yet. 
                     You can replace these with <Image src="..." /> later! */}
-                <club.Icon className={club.color} size={30} />
+                <club.Icon className={`${club.color} w-5 h-5 sm:w-[30px] sm:h-[30px]`} />
               </div>
               
-              <h3 className="text-navy font-bold text-lg ml-6">{club.name}</h3>
+              <h3 className="text-navy font-bold text-[13px] sm:text-lg ml-4 sm:ml-6">{club.name}</h3>
             </div>
           ))}
         </div>

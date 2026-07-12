@@ -7,8 +7,8 @@ import { useEffect, useState } from "react";
 
 const stats = [
   { icon: GraduationCap, end: 75, suffix: "+", label: "Years of Legacy" },
-  { icon: Users, end: 5000, suffix: "+", label: "Students" },
-  { icon: BookOpen, end: 300, suffix: "+", label: "Faculty Members" },
+  { icon: Users, end: 1000, suffix: "+", label: "Students" },
+  { icon: BookOpen, end: 40, suffix: "+", label: "Faculty Members" },
   { icon: Trophy, end: 100, suffix: "%", label: "Board Results" },
   { icon: Flag, end: 25, suffix: "+", label: "Sports & Clubs" },
 ];

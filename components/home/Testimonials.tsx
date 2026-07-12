@@ -44,7 +44,7 @@ export default function Testimonials() {
   }, []);
 
   return (
-    <section className="h-full bg-white rounded-2xl shadow-sm border border-gray-100 p-5 sm:p-6 flex flex-col relative overflow-hidden group hover:shadow-md transition-shadow">
+    <section className="h-full min-h-[280px] bg-white rounded-2xl shadow-sm border border-gray-100 p-5 sm:p-6 flex flex-col relative overflow-hidden group hover:shadow-md transition-shadow">
       {/* Header */}
       <div className="flex justify-between items-center mb-4 pb-3 border-b border-gray-100">
         <h2 className="text-xl sm:text-2xl font-heading font-bold text-navy-dark">Testimonial</h2>

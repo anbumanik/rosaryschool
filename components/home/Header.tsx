@@ -32,8 +32,8 @@ export default function Header() {
     <header
       className={`sticky top-0 z-40 w-full transition-all duration-300 ${
         isScrolled
-          ? "bg-white/90 backdrop-blur-md shadow-soft py-3"
-          : "bg-white py-5"
+          ? "bg-navy/95 backdrop-blur-md shadow-soft py-3"
+          : "bg-navy py-5"
       }`}
     >
       <div className="w-full px-4 sm:px-8 lg:px-12 flex justify-between items-center">
@@ -44,10 +44,10 @@ export default function Header() {
             <Image src="https://ik.imagekit.io/d5lm3vdk3/New%20Folder/rosary%20school/rosary_logo1-2-removebg-preview.png" alt="Rosary School Crest" fill className="object-contain" />
           </div>
           <div className="flex flex-col">
-            <span className="text-navy font-heading font-extrabold text-lg md:text-xl leading-tight tracking-tight">
+            <span className="text-white font-heading font-extrabold text-lg md:text-xl leading-tight tracking-tight">
               ROSARY
             </span>
-            <span className="text-navy-light text-[10px] md:text-xs font-medium leading-tight">
+            <span className="text-gray-300 text-[10px] md:text-xs font-medium leading-tight">
               Matriculation Hr. Sec. School<br/>
               Chennai
             </span>
@@ -60,7 +60,7 @@ export default function Header() {
             <Link
               key={link.name}
               href={link.href}
-              className="text-navy-dark hover:text-navy font-medium text-[13px] xl:text-sm px-2 xl:px-3 py-2 rounded-full hover:bg-lightBg transition-colors whitespace-nowrap"
+              className="text-gray-200 hover:text-white font-medium text-[13px] xl:text-sm px-2 xl:px-3 py-2 rounded-full hover:bg-navy-light transition-colors whitespace-nowrap"
             >
               {link.name}
             </Link>
@@ -77,7 +77,7 @@ export default function Header() {
           </Link>
           
           <button
-            className="lg:hidden text-navy p-2"
+            className="lg:hidden text-white p-2"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -93,14 +93,14 @@ export default function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-white border-t border-gray-100 overflow-hidden"
+            className="lg:hidden bg-navy-dark border-t border-navy-light overflow-hidden"
           >
             <div className="px-4 pt-2 pb-6 space-y-1">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="block px-3 py-3 text-base font-medium text-navy-dark hover:bg-lightBg hover:text-navy rounded-lg"
+                  className="block px-3 py-3 text-base font-medium text-gray-200 hover:bg-navy hover:text-white rounded-lg"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {link.name}

@@ -5,81 +5,61 @@ import { Trophy, Star, Medal } from "lucide-react";
 
 export default function Achievements() {
   return (
-    <section className="py-24 bg-navy relative overflow-hidden">
-      {/* Background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-gold/5 blur-[150px] rounded-full"></div>
-      
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold/10 border border-gold/30 text-gold mb-6 font-semibold text-sm">
-              <Trophy size={16} />
-              <span>Hall of Fame</span>
+    <section className="h-full bg-white rounded-2xl shadow-sm border border-gray-100 p-5 sm:p-6 flex flex-col">
+      {/* Header */}
+      <div className="flex justify-between items-center mb-4 pb-3 border-b border-gray-100">
+        <h2 className="text-xl sm:text-2xl font-heading font-bold text-navy-dark">Achievements</h2>
+        <a href="#" className="text-xs font-bold text-gray-500 hover:text-navy transition-colors tracking-widest uppercase">
+          View All
+        </a>
+      </div>
+
+      <div className="flex flex-col gap-6 flex-1">
+        {/* Navy Trophy Card */}
+        <div className="bg-navy-dark rounded-xl p-6 relative overflow-hidden flex flex-col items-center text-center shadow-md">
+          <div className="absolute inset-0 bg-gradient-to-tr from-gold/10 to-transparent"></div>
+          <div className="w-24 h-24 relative mb-4 z-10 flex items-center justify-center text-gold">
+            <Trophy size={64} strokeWidth={1} />
+          </div>
+          <p className="text-white font-serif italic text-lg z-10 leading-snug">
+            &quot;Excellence is not a skill, it is an attitude.&quot;
+          </p>
+          <p className="text-gold text-[10px] uppercase font-bold tracking-widest mt-1 z-10">
+            — Ralph Marston
+          </p>
+        </div>
+
+        {/* Stats List */}
+        <div className="flex flex-col gap-3">
+          <div className="flex items-center gap-3">
+            <div className="w-9 h-9 rounded-full bg-lightBg border border-gray-200 flex items-center justify-center shrink-0">
+              <Star className="text-gold" size={18} />
             </div>
-            <h2 className="text-4xl md:text-5xl font-heading font-extrabold text-white mb-6">
-              Our <span className="text-gold">Achievements</span>
-            </h2>
-            <blockquote className="text-xl md:text-2xl font-serif italic text-white/80 mb-12 border-l-4 border-gold pl-6 py-2">
-              &quot;Excellence is not a skill, it is an attitude.&quot;
-              <footer className="text-sm font-sans not-italic text-gold mt-4 font-semibold uppercase tracking-wider">— Ralph Marston</footer>
-            </blockquote>
-
-            <div className="space-y-6">
-              <div className="flex items-center gap-6 glassmorphism-navy p-6 rounded-2xl border-l-4 border-l-gold">
-                <div className="w-12 h-12 rounded-full bg-gold/20 flex items-center justify-center shrink-0">
-                  <Star className="text-gold" size={24} />
-                </div>
-                <div>
-                  <h4 className="text-2xl font-bold text-white mb-1">100%</h4>
-                  <p className="text-white/70 font-medium">Board Exam Results</p>
-                </div>
-              </div>
-              
-              <div className="flex items-center gap-6 glassmorphism-navy p-6 rounded-2xl border-l-4 border-l-green">
-                <div className="w-12 h-12 rounded-full bg-green/20 flex items-center justify-center shrink-0">
-                  <Trophy className="text-green" size={24} />
-                </div>
-                <div>
-                  <h4 className="text-2xl font-bold text-white mb-1">State Level</h4>
-                  <p className="text-white/70 font-medium">Sports & Athletics Winners</p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-6 glassmorphism-navy p-6 rounded-2xl border-l-4 border-l-navy-light">
-                <div className="w-12 h-12 rounded-full bg-navy-light/40 flex items-center justify-center shrink-0">
-                  <Medal className="text-white" size={24} />
-                </div>
-                <div>
-                  <h4 className="text-2xl font-bold text-white mb-1">University Toppers</h4>
-                  <p className="text-white/70 font-medium">Alumni Excellence</p>
-                </div>
-              </div>
+            <div>
+              <h4 className="font-heading font-bold text-navy-dark text-sm">100%</h4>
+              <p className="text-gray-500 text-[11px]">Board Exam Results</p>
             </div>
-          </motion.div>
+          </div>
           
-          {/* Trophy Display - 3D Render simulation */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1 }}
-            className="relative hidden lg:flex justify-center items-center h-full"
-          >
-             <div className="relative w-80 h-96">
-                <div className="absolute inset-0 bg-gradient-to-tr from-gold/20 to-transparent rounded-full blur-3xl"></div>
-                {/* Fallback image for 3D Trophy */}
-                <div className="absolute inset-0 flex items-center justify-center z-10 text-gold opacity-50">
-                   <Trophy size={200} strokeWidth={0.5} />
-                </div>
-             </div>
-          </motion.div>
+          <div className="flex items-center gap-4">
+            <div className="w-10 h-10 rounded-full bg-lightBg border border-gray-200 flex items-center justify-center shrink-0">
+              <Trophy className="text-gold" size={20} />
+            </div>
+            <div>
+              <h4 className="font-heading font-bold text-navy-dark text-[15px]">State Level Winners</h4>
+              <p className="text-gray-500 text-xs">In Various Competitions</p>
+            </div>
+          </div>
 
+          <div className="flex items-center gap-4">
+            <div className="w-10 h-10 rounded-full bg-lightBg border border-gray-200 flex items-center justify-center shrink-0">
+              <Medal className="text-gold" size={20} />
+            </div>
+            <div>
+              <h4 className="font-heading font-bold text-navy-dark text-[15px]">University Toppers</h4>
+              <p className="text-gray-500 text-xs">Consistently Every Year</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

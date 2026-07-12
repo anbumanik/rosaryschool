@@ -7,63 +7,50 @@ import Image from "next/image";
 
 export default function AdmissionsCTA() {
   return (
-    <section className="py-24 bg-white relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div 
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="rounded-3xl overflow-hidden relative shadow-2xl bg-navy flex flex-col lg:flex-row"
-        >
-          {/* Background image overlay */}
-          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-10 mix-blend-overlay hidden lg:block"></div>
-          <div className="absolute inset-0 bg-navy-gradient opacity-90"></div>
+    <section className="h-full rounded-2xl overflow-hidden relative shadow-md bg-navy flex flex-col group min-h-[350px]">
+      {/* Background Image spanning the right side */}
+      <div className="absolute inset-0 z-0 w-full h-full">
+        <Image 
+          src="https://ik.imagekit.io/d5lm3vdk3/New%20Folder/rosary%20school/school4.jpg" 
+          alt="Admissions" 
+          fill 
+          className="object-cover object-[80%_center] group-hover:scale-105 transition-transform duration-700" 
+        />
+      </div>
 
-          {/* Image side (mobile visible, desktop left) */}
-          <div className="w-full lg:w-5/12 h-64 lg:h-auto relative z-10 hidden md:block">
-            <Image 
-              src="https://ik.imagekit.io/d5lm3vdk3/New%20Folder/rosary%20school/school4.jpg" 
-              alt="Future Leaders at Rosary School" 
-              fill 
-              className="object-cover border-r border-white/10" 
-            />
-          </div>
+      {/* Navy Gradient Overlay for text readability on the left - perfectly matches screenshot */}
+      <div className="absolute inset-0 z-10 bg-gradient-to-r from-navy from-45% via-navy/80 to-transparent w-full pointer-events-none"></div>
+      
+      {/* Additional bottom gradient for mobile readability */}
+      <div className="absolute inset-0 z-10 bg-gradient-to-t from-navy via-navy/50 to-transparent h-full pointer-events-none sm:hidden"></div>
 
-          {/* Content side */}
-          <div className="w-full lg:w-7/12 p-8 sm:p-12 lg:p-16 relative z-10 flex flex-col justify-center">
-            <span className="inline-block py-1 px-3 rounded-full bg-red-500/20 text-red-400 border border-red-500/30 text-xs font-bold uppercase tracking-widest mb-6 self-start animate-pulse">
-              Limited Seats Available
-            </span>
-            
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-white mb-4">
-              Admissions Open <span className="text-gold">2026-27</span>
-            </h2>
-            
-            <p className="text-lg text-white/80 font-medium mb-10 max-w-xl">
-              Begin your child&apos;s journey of excellence with us. Join the Rosary family and be part of our 75-year legacy.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link 
-                href="#"
-                className="group flex items-center justify-center px-8 py-4 text-sm font-bold text-navy bg-gold rounded-full hover:bg-gold-light hover:shadow-glow transition-all duration-300"
-              >
-                Apply Online
-                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
-              </Link>
-              
-              <Link 
-                href="#"
-                className="group flex items-center justify-center px-8 py-4 text-sm font-bold text-white bg-transparent rounded-full border border-white/30 hover:bg-white hover:text-navy transition-all duration-300"
-              >
-                <Download className="mr-2" size={18} />
-                Download Prospectus
-              </Link>
-            </div>
-          </div>
+      {/* Content Container */}
+      <div className="p-6 sm:p-8 relative z-20 flex flex-col h-full w-full max-w-[85%] sm:max-w-[70%] lg:max-w-[85%]">
+        <h2 className="text-2xl sm:text-[28px] font-heading font-bold text-white mb-2 leading-tight">
+          Admissions Open<br/>
+          2026-27
+        </h2>
+        
+        <p className="text-[13px] text-gray-200 font-medium mb-8">
+          Limited seats available.
+        </p>
+        
+        <div className="flex flex-col gap-3 mt-auto items-start">
+          <Link 
+            href="#"
+            className="inline-flex items-center justify-center px-6 py-2.5 text-[11px] font-bold text-navy bg-gold rounded-md hover:bg-gold-light hover:shadow-glow transition-all duration-300 tracking-wide"
+          >
+            APPLY ONLINE
+          </Link>
           
-        </motion.div>
+          <Link 
+            href="#"
+            className="inline-flex items-center justify-center px-5 py-2.5 text-[11px] font-bold text-white bg-transparent rounded-md border border-white/40 hover:bg-white hover:text-navy transition-all duration-300 backdrop-blur-sm tracking-wide"
+          >
+            <Download className="mr-2" size={14} />
+            DOWNLOAD PROSPECTUS
+          </Link>
+        </div>
       </div>
     </section>
   );

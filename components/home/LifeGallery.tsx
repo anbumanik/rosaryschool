@@ -64,8 +64,8 @@ export default function LifeGallery() {
   }, []);
 
   return (
-    <section className="py-24 bg-lightBg relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8">
+    <section className="h-full relative flex flex-col">
+      <div className="mb-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -73,7 +73,7 @@ export default function LifeGallery() {
           transition={{ duration: 0.6 }}
         >
           <span className="text-gold font-bold uppercase tracking-widest text-sm mb-2 block">Campus Experience</span>
-          <h2 className="text-4xl md:text-5xl font-heading font-extrabold text-navy-dark">Life @ Rosary</h2>
+          <h2 className="text-2xl sm:text-3xl font-heading font-extrabold text-navy-dark">Life @ Rosary</h2>
         </motion.div>
         
         <motion.div
@@ -88,11 +88,11 @@ export default function LifeGallery() {
         </motion.div>
       </div>
 
-      <div className="w-full overflow-hidden max-w-7xl mx-auto">
+      <div className="w-full overflow-hidden flex-1">
         {/* Horizontal scroll container */}
         <div 
           ref={scrollRef}
-          className="flex gap-8 overflow-x-auto pb-12 pt-4 px-4 sm:px-6 lg:px-8 snap-x snap-mandatory no-scrollbar"
+          className="flex gap-6 overflow-x-auto pb-8 pt-2 snap-x snap-mandatory no-scrollbar h-full"
         >
           {activities.map((item, index) => (
             <motion.div
@@ -101,7 +101,7 @@ export default function LifeGallery() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="relative min-w-[300px] w-[300px] md:min-w-[400px] md:w-[400px] aspect-[4/5] rounded-3xl overflow-hidden group snap-center cursor-pointer flex-shrink-0"
+              className="relative min-w-[260px] w-[260px] md:min-w-[320px] md:w-[320px] h-[350px] md:h-[400px] rounded-3xl overflow-hidden group snap-center cursor-pointer flex-shrink-0 shadow-sm"
               style={{
                 perspective: 1000
               }}

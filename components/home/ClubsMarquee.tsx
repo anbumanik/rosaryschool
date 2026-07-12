@@ -41,11 +41,6 @@ export default function ClubsMarquee() {
               </div>
               
               <h3 className="text-navy font-bold text-lg ml-6">{club.name}</h3>
-              
-              {/* Button overflowing the bottom */}
-              <button className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-navy text-white px-6 py-1.5 text-xs font-bold shadow-md group-hover:bg-gold transition-colors">
-                CLICK ME
-              </button>
             </div>
           ))}
         </div>

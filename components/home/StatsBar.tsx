@@ -36,7 +36,7 @@ function Counter({ end, suffix, inView }: { end: number; suffix: string; inView:
   }, [end, inView]);
 
   return (
-    <span className="font-heading font-bold text-3xl sm:text-4xl text-white">
+    <span className="font-heading font-bold text-2xl lg:text-3xl text-white">
       {count}{suffix}
     </span>
   );
@@ -62,22 +62,24 @@ export default function StatsBar() {
   };
 
   return (
-    <div className="bg-navy-dark w-full py-16 relative z-20 shadow-xl border-t-4 border-gold">
+    <div className="bg-navy-dark w-full py-8 relative z-20 border-t-4 border-gold">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 sm:gap-12"
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-y-8 divide-x-0 lg:divide-x lg:divide-navy-light"
         >
           {stats.map((stat, index) => (
-            <motion.div key={index} variants={itemVariants} className="flex flex-col items-center text-center group">
-              <div className="w-16 h-16 rounded-full bg-navy flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-gold/10 transition-all duration-300 border border-navy-light group-hover:border-gold">
-                <stat.icon className="text-gold" size={32} strokeWidth={1.5} />
+            <motion.div key={index} variants={itemVariants} className="flex flex-col md:flex-row items-center justify-center text-center md:text-left gap-4 group px-4">
+              <div className="w-12 h-12 flex items-center justify-center text-gold group-hover:scale-110 transition-transform duration-300">
+                <stat.icon size={36} strokeWidth={1.5} />
               </div>
-              <Counter end={stat.end} suffix={stat.suffix} inView={isInView} />
-              <span className="text-white/70 font-medium text-sm mt-2">{stat.label}</span>
+              <div className="flex flex-col">
+                <Counter end={stat.end} suffix={stat.suffix} inView={isInView} />
+                <span className="text-white/70 font-medium text-xs mt-0.5">{stat.label}</span>
+              </div>
             </motion.div>
           ))}
         </motion.div>

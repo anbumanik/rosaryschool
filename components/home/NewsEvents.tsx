@@ -33,78 +33,50 @@ const newsItems = [
 
 export default function NewsEvents() {
   return (
-    <section className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Header */}
-        <div className="flex justify-between items-end mb-16 border-b border-gray-100 pb-6">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-navy-dark">News & Events</h2>
-          </motion.div>
-          
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="flex items-center gap-4 hidden sm:flex"
-          >
-            <button className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:text-navy hover:border-navy transition-colors">
-              <ArrowLeft size={20} />
-            </button>
-            <button className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:text-navy hover:border-navy transition-colors">
-              <ArrowRight size={20} />
-            </button>
-          </motion.div>
-        </div>
+    <section className="h-full bg-white rounded-2xl shadow-sm border border-gray-100 p-5 sm:p-6 flex flex-col">
+      {/* Header */}
+      <div className="flex justify-between items-center mb-4 pb-3 border-b border-gray-100">
+        <h2 className="text-xl sm:text-2xl font-heading font-bold text-navy-dark">News & Events</h2>
+        <a href="#" className="text-xs font-bold text-gray-500 hover:text-navy transition-colors tracking-widest uppercase">
+          View All
+        </a>
+      </div>
 
-        {/* Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {newsItems.map((item, index) => (
-            <motion.div
-              key={item.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: index * 0.15 }}
-              className="group flex flex-col"
-            >
-              <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden mb-6">
-                <div className="absolute inset-0 bg-gray-200 group-hover:scale-105 transition-transform duration-500"></div>
-                
-                {/* Date Badge */}
-                <div className="absolute top-4 left-4 bg-navy text-white rounded-xl overflow-hidden flex flex-col text-center shadow-lg w-16">
-                  <span className="font-heading font-bold text-xl bg-navy-dark py-2">{item.day}</span>
-                  <span className="text-xs font-bold py-1 bg-navy tracking-widest">{item.month}</span>
-                </div>
-              </div>
-              
-              <h3 className="text-xl font-heading font-bold text-navy-dark mb-3 group-hover:text-gold transition-colors line-clamp-2">
+      {/* Content */}
+      <div className="flex flex-col gap-4 flex-1 justify-between">
+        {newsItems.map((item, index) => (
+          <div key={item.id} className="flex gap-3 group cursor-pointer">
+            {/* Date Badge */}
+            <div className="w-12 h-12 bg-navy-dark text-white rounded-lg flex flex-col items-center justify-center flex-shrink-0 shadow-sm group-hover:bg-gold transition-colors duration-300">
+              <span className="text-base font-heading font-bold leading-none">{item.day}</span>
+              <span className="text-[9px] uppercase font-bold tracking-wider mt-0.5">{item.month}</span>
+            </div>
+            
+            <div className="flex flex-col justify-center">
+              <h3 className="text-[15px] font-heading font-bold text-navy-dark mb-1 group-hover:text-gold transition-colors line-clamp-1">
                 {item.title}
               </h3>
-              
-              <p className="text-gray-600 mb-6 line-clamp-3">
+              <p className="text-gray-500 text-[11px] line-clamp-2 leading-relaxed">
                 {item.excerpt}
               </p>
-              
-              <Link href="#" className="mt-auto inline-flex items-center text-sm font-bold text-navy hover:text-gold transition-colors">
-                READ MORE <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </motion.div>
-          ))}
+            </div>
+          </div>
+        ))}
+      </div>
+      
+      {/* Pagination arrows */}
+      <div className="flex justify-between items-center mt-5 pt-3 border-t border-gray-100">
+        <button className="text-gray-400 hover:text-navy transition-colors">
+          <ArrowLeft size={16} />
+        </button>
+        <div className="flex gap-1.5">
+           <span className="w-1.5 h-1.5 rounded-full bg-navy"></span>
+           <span className="w-1.5 h-1.5 rounded-full bg-gray-300"></span>
+           <span className="w-1.5 h-1.5 rounded-full bg-gray-300"></span>
         </div>
-        
-        <div className="mt-12 text-center sm:hidden">
-           <button className="px-6 py-3 border-2 border-navy text-navy font-bold rounded-full hover:bg-navy hover:text-white transition-colors">
-             View All Events
-           </button>
-        </div>
-
+        <button className="text-gray-400 hover:text-navy transition-colors">
+          <ArrowRight size={16} />
+        </button>
       </div>
     </section>
   );

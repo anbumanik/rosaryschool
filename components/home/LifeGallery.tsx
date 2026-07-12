@@ -68,7 +68,7 @@ export default function LifeGallery() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <span className="text-gold font-bold uppercase tracking-widest text-sm mb-2 block">Campus Experience</span>
+
           <h2 className="text-2xl sm:text-3xl font-heading font-extrabold text-navy-dark">Life @ Rosary</h2>
         </motion.div>
         

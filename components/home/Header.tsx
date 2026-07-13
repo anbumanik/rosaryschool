@@ -41,8 +41,8 @@ export default function Header() {
             <Image
               src="https://ik.imagekit.io/d5lm3vdk3/New%20Folder/rosary%20school/rosary_logo1-2-removebg-preview.png"
               alt="Rosary crest"
-              width={scrolled ? 40 : 52}
-              height={scrolled ? 40 : 52}
+              width={scrolled ? 56 : 72}
+              height={scrolled ? 56 : 72}
               className="transition-all duration-300"
             />
             <div>

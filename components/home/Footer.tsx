@@ -41,29 +41,32 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Quick Links */}
-        <div>
-          <h4 className="text-white font-bold mb-4">Quick Links</h4>
-          <ul className="space-y-4">
-            <li><Link href="#" className="text-white/70 hover:text-[#D4AF37] transition-colors text-sm">About Us</Link></li>
-            <li><Link href="#" className="text-white/70 hover:text-[#D4AF37] transition-colors text-sm">Academics</Link></li>
-            <li><Link href="#" className="text-white/70 hover:text-[#D4AF37] transition-colors text-sm">Admissions</Link></li>
-            <li><Link href="#" className="text-white/70 hover:text-[#D4AF37] transition-colors text-sm">Campus Life</Link></li>
-            <li><Link href="#" className="text-white/70 hover:text-[#D4AF37] transition-colors text-sm">Achievements</Link></li>
-            <li><Link href="#" className="text-white/70 hover:text-[#D4AF37] transition-colors text-sm">News & Events</Link></li>
-          </ul>
-        </div>
+        {/* Quick Links + Portals — side by side on mobile, separate columns on desktop */}
+        <div className="grid grid-cols-2 md:contents gap-6 md:gap-0">
+          {/* Quick Links */}
+          <div>
+            <h4 className="text-white font-bold mb-4">Quick Links</h4>
+            <ul className="space-y-4">
+              <li><Link href="#" className="text-white/70 hover:text-[#D4AF37] transition-colors text-sm">About Us</Link></li>
+              <li><Link href="#" className="text-white/70 hover:text-[#D4AF37] transition-colors text-sm">Academics</Link></li>
+              <li><Link href="#" className="text-white/70 hover:text-[#D4AF37] transition-colors text-sm">Admissions</Link></li>
+              <li><Link href="#" className="text-white/70 hover:text-[#D4AF37] transition-colors text-sm">Campus Life</Link></li>
+              <li><Link href="#" className="text-white/70 hover:text-[#D4AF37] transition-colors text-sm">Achievements</Link></li>
+              <li><Link href="#" className="text-white/70 hover:text-[#D4AF37] transition-colors text-sm">News & Events</Link></li>
+            </ul>
+          </div>
 
-        {/* Portals */}
-        <div>
-          <h4 className="text-white font-bold mb-4">Portals</h4>
-          <ul className="space-y-4">
-            <li><Link href="#" className="text-white/70 hover:text-[#D4AF37] transition-colors text-sm">Alumni</Link></li>
-            <li><Link href="#" className="text-white/70 hover:text-[#D4AF37] transition-colors text-sm">Parent Portal</Link></li>
-            <li><Link href="#" className="text-white/70 hover:text-[#D4AF37] transition-colors text-sm">Student Portal</Link></li>
-            <li><Link href="#" className="text-white/70 hover:text-[#D4AF37] transition-colors text-sm">Staff Portal</Link></li>
-            <li><Link href="#" className="text-white/70 hover:text-[#D4AF37] transition-colors text-sm">Careers</Link></li>
-          </ul>
+          {/* Portals */}
+          <div>
+            <h4 className="text-white font-bold mb-4">Portals</h4>
+            <ul className="space-y-4">
+              <li><Link href="#" className="text-white/70 hover:text-[#D4AF37] transition-colors text-sm">Alumni</Link></li>
+              <li><Link href="#" className="text-white/70 hover:text-[#D4AF37] transition-colors text-sm">Parent Portal</Link></li>
+              <li><Link href="#" className="text-white/70 hover:text-[#D4AF37] transition-colors text-sm">Student Portal</Link></li>
+              <li><Link href="#" className="text-white/70 hover:text-[#D4AF37] transition-colors text-sm">Staff Portal</Link></li>
+              <li><Link href="#" className="text-white/70 hover:text-[#D4AF37] transition-colors text-sm">Careers</Link></li>
+            </ul>
+          </div>
         </div>
 
         {/* Contact column — fix map overflow */}
@@ -91,21 +94,21 @@ export default function Footer() {
           </ul>
 
           <div className="mt-4 rounded-lg overflow-hidden border border-white/10 w-full aspect-[4/3]">
-            <iframe 
-              src="https://maps.google.com/maps?q=13.0354454,80.2761571&t=&z=16&ie=UTF8&iwloc=&output=embed"
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d497362.6598203136!2d80.12033300000002!3d13.121612!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52687f8fe94399%3A0x2725df5cd6a76e24!2sRosary%20Matriculation%20Higher%20Secondary%20School!5e0!3m2!1sen!2sus!4v1783953369641!5m2!1sen!2sus"
               className="w-full h-full opacity-90 hover:opacity-100 transition-opacity"
-              style={{ border: 0 }} 
-              allowFullScreen={false} 
-              loading="lazy" 
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
           </div>
         </div>
       </div>
 
-      <div className="border-t border-white/10 max-w-7xl mx-auto px-6 py-5 flex flex-col md:flex-row justify-between text-xs text-white/50">
+      <div className="border-t border-white/10 max-w-7xl mx-auto px-6 py-5 flex flex-col items-center md:flex-row md:items-center md:justify-between text-xs text-white/50 text-center md:text-left gap-2 md:gap-0">
         <p>© {new Date().getFullYear()} Rosary Matriculation Hr. Sec. School. All rights reserved.</p>
-        <div className="flex gap-6 mt-2 md:mt-0">
+        <div className="flex gap-6">
           <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
           <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
         </div>

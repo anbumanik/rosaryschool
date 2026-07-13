@@ -1,82 +1,103 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, ArrowLeft } from "lucide-react";
-import Link from "next/link";
+import { ArrowRight, Calendar, Megaphone } from "lucide-react";
 
 const newsItems = [
   {
     id: 1,
-    title: "Platinum Jubilee Celebrations Announced",
-    excerpt: "Join us in celebrating 75 years of academic excellence and holistic development as we unveil a year-long series of events.",
+    tag: "EVENT",
+    title: "Platinum Jubilee Celebrations",
+    excerpt: "75 years of excellence — a year-long series of landmark events begins this August.",
     day: "15",
     month: "AUG",
-    image: "bg-navy-light",
+    color: "from-navy to-navy-light",
   },
   {
     id: 2,
-    title: "State Level Science Exhibition Winners",
-    excerpt: "Our senior students secured the first place in the State Level Science Exhibition with their innovative smart city model.",
+    tag: "ACHIEVEMENT",
+    title: "State Science Exhibition Winners",
+    excerpt: "Our students secured 1st place with their innovative smart city model.",
     day: "02",
     month: "SEP",
-    image: "bg-green",
+    color: "from-[#1A4175] to-navy",
   },
   {
     id: 3,
+    tag: "SPORTS",
     title: "Annual Sports Meet 2024",
-    excerpt: "Get ready for the most awaited event of the year. The Annual Sports Meet will be held at the main campus ground.",
+    excerpt: "The most awaited event of the year returns to the main campus ground.",
     day: "28",
     month: "SEP",
-    image: "bg-gold",
+    color: "from-navy-dark to-navy",
   },
 ];
 
 export default function NewsEvents() {
   return (
-    <section className="h-full bg-white rounded-2xl shadow-sm border border-gray-100 p-5 sm:p-6 flex flex-col">
+    <section className="h-full flex flex-col">
       {/* Header */}
-      <div className="flex justify-between items-center mb-4 pb-3 border-b border-gray-100">
-        <h2 className="text-xl sm:text-2xl font-heading font-bold text-navy-dark">News & Events</h2>
-        <a href="#" className="text-xs font-bold text-gray-500 hover:text-navy transition-colors tracking-widest uppercase">
-          View All
+      <div className="flex justify-between items-center mb-5">
+        <div className="flex items-center gap-2">
+          <Megaphone size={18} className="text-gold" />
+          <h2 className="text-xl font-heading font-bold text-navy-dark">News & Events</h2>
+        </div>
+        <a
+          href="#"
+          className="text-[11px] font-bold text-navy-dark/50 hover:text-gold transition-colors tracking-widest uppercase flex items-center gap-1 group"
+        >
+          View All <ArrowRight size={12} className="group-hover:translate-x-0.5 transition-transform" />
         </a>
       </div>
 
-      {/* Content */}
-      <div className="flex flex-col gap-4 flex-1 justify-between">
+      {/* Cards */}
+      <div className="flex flex-col gap-3 flex-1">
         {newsItems.map((item, index) => (
-          <div key={item.id} className="flex gap-3 group cursor-pointer">
+          <motion.div
+            key={item.id}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: index * 0.1 }}
+            className="group relative flex items-center gap-4 rounded-xl overflow-hidden cursor-pointer"
+          >
             {/* Date Badge */}
-            <div className="w-12 h-12 bg-navy-dark text-white rounded-lg flex flex-col items-center justify-center flex-shrink-0 shadow-sm group-hover:bg-gold transition-colors duration-300">
-              <span className="text-base font-heading font-bold leading-none">{item.day}</span>
-              <span className="text-[9px] uppercase font-bold tracking-wider mt-0.5">{item.month}</span>
+            <div
+              className={`bg-gradient-to-br ${item.color} w-16 h-16 rounded-xl flex flex-col items-center justify-center flex-shrink-0 shadow-soft group-hover:scale-105 transition-transform duration-300`}
+            >
+              <span className="text-xl font-heading font-black text-white leading-none">{item.day}</span>
+              <span className="text-[9px] uppercase font-bold tracking-widest text-gold mt-0.5">{item.month}</span>
             </div>
-            
-            <div className="flex flex-col justify-center">
-              <h3 className="text-[15px] font-heading font-bold text-navy-dark mb-1 group-hover:text-gold transition-colors line-clamp-1">
+
+            {/* Content */}
+            <div className="flex-1 min-w-0 py-1">
+              <span className="text-[9px] font-black tracking-[0.15em] text-gold uppercase mb-1 block">
+                {item.tag}
+              </span>
+              <h3 className="text-[13.5px] font-heading font-bold text-navy-dark mb-1 group-hover:text-gold transition-colors line-clamp-1">
                 {item.title}
               </h3>
-              <p className="text-gray-500 text-[11px] line-clamp-2 leading-relaxed">
-                {item.excerpt}
-              </p>
+              <p className="text-gray-400 text-[11px] line-clamp-1 leading-relaxed">{item.excerpt}</p>
             </div>
-          </div>
+
+            {/* Arrow */}
+            <ArrowRight
+              size={14}
+              className="text-gray-300 group-hover:text-gold group-hover:translate-x-0.5 transition-all flex-shrink-0"
+            />
+          </motion.div>
         ))}
       </div>
-      
-      {/* Pagination arrows */}
-      <div className="flex justify-between items-center mt-5 pt-3 border-t border-gray-100">
-        <button className="text-gray-400 hover:text-navy transition-colors">
-          <ArrowLeft size={16} />
-        </button>
-        <div className="flex gap-1.5">
-           <span className="w-1.5 h-1.5 rounded-full bg-navy"></span>
-           <span className="w-1.5 h-1.5 rounded-full bg-gray-300"></span>
-           <span className="w-1.5 h-1.5 rounded-full bg-gray-300"></span>
-        </div>
-        <button className="text-gray-400 hover:text-navy transition-colors">
-          <ArrowRight size={16} />
-        </button>
+
+      {/* Bottom CTA */}
+      <div className="mt-5 pt-4 border-t border-gray-100">
+        <a
+          href="#"
+          className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-lightBg hover:bg-navy-dark hover:text-white text-navy-dark text-[12px] font-bold tracking-widest uppercase transition-all duration-300 group"
+        >
+          <Calendar size={14} className="group-hover:text-gold transition-colors" />
+          Full Calendar
+        </a>
       </div>
     </section>
   );

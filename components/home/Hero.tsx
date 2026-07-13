@@ -53,7 +53,7 @@ export default function Hero() {
       {/* Content */}
       <div className="relative z-20 h-full flex flex-col justify-center px-6 md:px-16 w-full pt-28 md:pt-0">
         {/* 75 years badge */}
-        <div className="flex justify-center pt-6 pb-4 md:absolute md:top-8 md:right-8 lg:right-16 md:block md:pt-0 md:pb-0 z-20 scale-75 md:scale-100 origin-center md:origin-top-right">
+        <div className="flex justify-center pt-6 pb-4 md:absolute md:top-8 md:right-8 lg:right-16 md:block md:pt-0 md:pb-0 z-20 scale-50 md:scale-100 origin-center md:origin-top-right">
           <div className="relative flex flex-col items-center w-[170px]">
             <div className="w-[140px] h-[140px] rounded-full bg-[#D4AF37] flex items-center justify-center shadow-2xl relative z-10">
               <div className="w-[118px] h-[118px] rounded-full bg-[#0F2D52] border border-dashed border-[#D4AF37]/50 flex flex-col items-center justify-center">
@@ -69,20 +69,20 @@ export default function Hero() {
         </div>
 
         <div className="max-w-3xl">
-          <h1 className="font-['Plus_Jakarta_Sans'] font-bold text-4xl md:text-6xl text-white leading-tight px-4 md:px-0 mt-2 md:mt-0">
+          <h1 className="font-['Plus_Jakarta_Sans'] font-bold text-2xl sm:text-3xl md:text-6xl text-white leading-tight px-4 md:px-0 mt-2 md:mt-0">
             Shaping Minds.<br />
             Building Futures.<br />
             <span className="text-[#D4AF37]">Inspiring Excellence.</span>
           </h1>
-          <p className="mt-4 text-white/90 text-base md:text-lg max-w-md">
+          <p className="mt-3 text-white/90 text-xs sm:text-sm md:text-lg max-w-md px-4 md:px-0">
             A legacy of 75 Years in nurturing generations of confident leaders.
           </p>
-          <div className="flex gap-3 md:gap-4 mt-8 flex-wrap md:flex-nowrap">
-            <button className="bg-[#D4AF37] text-[#0F2D52] font-bold rounded-full px-4 py-2.5 whitespace-nowrap text-xs uppercase tracking-wide">
+          <div className="flex gap-2 md:gap-4 mt-6 md:mt-8 flex-wrap md:flex-nowrap px-4 md:px-0">
+            <button className="bg-[#D4AF37] text-[#0F2D52] font-bold rounded-full px-3 py-1.5 md:px-4 md:py-2.5 whitespace-nowrap text-[10px] md:text-xs uppercase tracking-wide">
               Admissions open 2026-27
             </button>
-            <button className="border border-white/60 text-white rounded-full px-4 py-2.5 flex items-center gap-2 whitespace-nowrap text-xs uppercase tracking-wide hover:bg-white/10 transition-colors">
-              Virtual tour <ArrowRight size={14} />
+            <button className="border border-white/60 text-white rounded-full px-3 py-1.5 md:px-4 md:py-2.5 flex items-center gap-1.5 whitespace-nowrap text-[10px] md:text-xs uppercase tracking-wide hover:bg-white/10 transition-colors">
+              Virtual tour <ArrowRight size={12} className="md:w-3.5 md:h-3.5" />
             </button>
           </div>
         </div>

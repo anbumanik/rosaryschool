@@ -25,7 +25,7 @@ const activities = [
     title: "Sports Excellence",
     description: "Comprehensive facilities promoting physical fitness and teamwork.",
     icon: Dumbbell,
-    image: "https://ik.imagekit.io/d5lm3vdk3/New%20Folder/rosary%20school/sports.jpg"
+    image: "https://ik.imagekit.io/d5lm3vdk3/New%20Folder/rosary%20school/sport.jpg?updatedAt=1783870164757"
   },
   {
     id: 4,

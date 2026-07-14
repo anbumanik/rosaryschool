@@ -7,13 +7,13 @@ import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
-  "About Us", 
-  "Academics", 
-  "Admissions", 
-  "Campus Life", 
-  "Achievements", 
-  "News & Events", 
-  "Contact"
+  { name: "About Us", href: "/about" },
+  { name: "Academics", href: "#" },
+  { name: "Admissions", href: "#" },
+  { name: "Campus Life", href: "#" },
+  { name: "Achievements", href: "#" },
+  { name: "News & Events", href: "#" },
+  { name: "Contact", href: "#" }
 ];
 
 export default function Header() {
@@ -57,10 +57,10 @@ export default function Header() {
 
           <nav className="hidden lg:flex gap-8 text-white text-sm font-medium">
             {navLinks.map((link) => (
-              <a key={link} href="#" className="relative group py-1">
-                {link}
+              <Link key={link.name} href={link.href} className="relative group py-1">
+                {link.name}
                 <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#D4AF37] transition-all duration-300 group-hover:w-full" />
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -91,12 +91,12 @@ export default function Header() {
             <div className="px-6 py-6 flex flex-col gap-4">
               {navLinks.map((link) => (
                 <Link
-                  key={link}
-                  href="#"
+                  key={link.name}
+                  href={link.href}
                   className="text-white text-base font-medium hover:text-[#D4AF37] transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  {link}
+                  {link.name}
                 </Link>
               ))}
               <div className="pt-4 border-t border-white/10">

@@ -23,14 +23,14 @@ export default function OurFoundress() {
 
   return (
     <section className="py-12 border-t border-gray-100">
-      <div className="grid grid-cols-1 md:grid-cols-[1fr_1.4fr] gap-10 items-start">
+      <div className="grid grid-cols-1 md:grid-cols-[1fr_1.4fr] gap-10 lg:gap-16 items-center">
         {/* Left: Image with pop-up effect */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8, y: 30 }}
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, type: "spring", bounce: 0.4 }}
-          className="relative w-full aspect-[4/5] rounded-3xl overflow-hidden shadow-soft group"
+          className="relative w-full max-w-[380px] mx-auto aspect-[4/5] rounded-3xl overflow-hidden shadow-soft group"
         >
           <Image
             src="https://ik.imagekit.io/d5lm3vdk3/New%20Folder/rosary%20school/about.jpg"

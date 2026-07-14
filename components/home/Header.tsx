@@ -10,7 +10,7 @@ const navLinks = [
   { name: "About Us", href: "/about" },
   { name: "Academics", href: "#" },
   { name: "Admissions", href: "#" },
-  { name: "Campus Life", href: "#" },
+  { name: "Campus Life", href: "/campus-life" },
   { name: "Achievements", href: "#" },
   { name: "News & Events", href: "#" },
   { name: "Contact", href: "#" }

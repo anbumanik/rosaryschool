@@ -54,8 +54,8 @@ export default function Hero() {
       <div className="relative z-20 h-full flex flex-col justify-center px-6 md:px-16 w-full pt-28 md:pt-0">
         {/* 75 years badge */}
         <div className="flex justify-center pt-6 pb-4 md:absolute md:top-8 md:right-8 lg:right-16 md:block md:pt-0 md:pb-0 z-20 scale-50 md:scale-100 origin-center md:origin-top-right">
-          <div className="relative flex flex-col items-center w-[170px]">
-            <div className="w-[140px] h-[140px] rounded-full bg-[#D4AF37] flex items-center justify-center shadow-2xl relative z-10">
+          <div className="relative flex flex-col items-center w-[170px] group">
+            <div className="w-[140px] h-[140px] rounded-full bg-[#D4AF37] flex items-center justify-center shadow-2xl relative z-10 cursor-pointer transition-transform duration-1000 ease-in-out group-hover:rotate-[360deg]">
               <div className="w-[118px] h-[118px] rounded-full bg-[#0F2D52] border border-dashed border-[#D4AF37]/50 flex flex-col items-center justify-center">
                 <p className="text-[40px] font-bold text-[#D4AF37] leading-none">75</p>
                 <p className="text-xs font-bold text-white tracking-[0.18em] mt-1.5">YEARS</p>
